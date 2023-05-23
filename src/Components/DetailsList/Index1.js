@@ -23,10 +23,14 @@ import './detailList.css';
     ModeofSharing: '',
     },
 
+
+
+
+
        onSubmit:  async(values) => { 
        console.log("hi");
        console.log(values);
-       const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/detailsnewform`, values);
+       const result = await axios.post(`https://form-backend-9ekx.onrender.com/api/detailsnewform`, values);
        //const result = await axios.post(`http:localhost:5000/api/detailsnewform`, values);
        console.log(result);
       //  window.location.reload();
@@ -177,7 +181,6 @@ return (
 <div className="mb-3 row">
 <button onSubmit={formik.handleChange} type = "submit" >SUBMIT</button> 
 {/* <button onSubmit={formik.handleChange} type="submit" onClick={() => window.location.reload()}>SUBMIT</button> */}
-
 
 
 </div>
