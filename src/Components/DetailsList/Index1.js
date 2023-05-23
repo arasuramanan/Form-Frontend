@@ -30,7 +30,7 @@ import './detailList.css';
        onSubmit:  async(values) => { 
        console.log("hi");
        console.log(values);
-       const result = await axios.post(`https://form-backend-9ekx.onrender.com/api/detailsnewform`, values);
+       const result = await axios.post(`${process.env.MONGOURL}`, values);
        //const result = await axios.post(`http:localhost:5000/api/detailsnewform`, values);
        console.log(result);
       //  window.location.reload();
