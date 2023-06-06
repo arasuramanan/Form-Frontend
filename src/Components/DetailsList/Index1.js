@@ -32,7 +32,7 @@ onSubmit:  async(values) => {
   console.log(values);
       const result = await axios.post(`https://form-backend-9ekx.onrender.com/api/detailsnewform`, values);
       console.log(result);
-       window.alert("Form Submitted Successfully 🙂");
+       window.alert("🎉✨ Form Submitted Successfully! 🎉✨");
         window.location.reload();
       
  }
@@ -41,7 +41,7 @@ onSubmit:  async(values) => {
 
  async function handleLogout() {
   try {
-    window.location.href = 'https://www.nationalfitting.com/';
+    window.location.href = 'https://nationalfittingsupsi.netlify.app/';
   } catch (error) {
     console.log(error);
   }
