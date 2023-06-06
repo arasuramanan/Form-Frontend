@@ -3,10 +3,12 @@ import axios from 'axios';
 import './detailList.css';
 
 
-     function DetailsList(){
+
+function DetailsList(){
 
 
-    const formik = useFormik({
+
+const formik = useFormik({
     initialValues: {
     NameoftheUPSI: '',
     InfoSharedBy: '',
@@ -21,28 +23,36 @@ import './detailList.css';
     ParticularofInfoShared: '',
     PurposeofSharing: '',
     ModeofSharing: '',
-    },
+},
 
 
 
-
-
-       onSubmit:  async(values) => { 
-       console.log("hi");
-       console.log(values);
-       const result = await axios.post(`https://form-backend-9ekx.onrender.com/api/detailsnewform`, values);
-       //const result = await axios.post(`http:localhost:5000/api/detailsnewform`, values);
-       console.log(result);
+onSubmit:  async(values) => { 
+ console.log("hi");
+  console.log(values);
+      const result = await axios.post(`https://form-backend-9ekx.onrender.com/api/detailsnewform`, values);
+      console.log(result);
        window.alert("Form Submitted Successfully 🙂");
         window.location.reload();
       
  }
  });
 
+
+ async function handleLogout() {
+  try {
+    window.location.href = 'https://www.nationalfitting.com/';
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 return (
 <form onSubmit = { formik.handleSubmit }>
 <div>
 <div>
+
+
 
 <div className="mb-5 row"></div>   
 <div className="mb-3 row">
@@ -73,8 +83,8 @@ return (
 <label htmlFor="text" className="col-sm-2 col-form-label">Info Shared with respect to:</label>
 <div className="col-sm-3">
 <select className="form-select form-select-lg mb-3" onChange={formik.handleChange} name="InfoSharedwithrespectto" aria-label=".form-select-lg example">
-<option defaultValue="None">None</option>
-<option Value="Designated Person">Designated Person</option>
+<option defaultValue="None">--- Select ---</option>
+<option value="Designated Person">Designated Person</option>
 <option value="Insider">Insider</option>
 <option value="UPSI Project">UPSI Project</option>
 </select>
@@ -86,8 +96,8 @@ return (
 <label htmlFor="text" className="col-sm-2 col-form-label">Insider Types:</label>
 <div className="col-sm-3">
 <select className="form-select form-select-lg mb-3" onChange={formik.handleChange} name="InsiderTypes" aria-label=".form-select-lg example">
-<option defaultValue="None">None</option>
-<option Value="Director">Director</option>
+<option defaultValue="None">--- Select ---</option>
+<option value="Director">Director</option>
 <option value="Managing Director">Managing Director</option>
 <option value="Independent Director">Independent Director</option>
 <option value="CFO">CFO</option>
@@ -127,8 +137,8 @@ return (
 <label htmlFor="text" className="col-sm-2 col-form-label">Type of Organization:</label>
 <div className="col-sm-3">
 <select className="form-select form-select-lg mb-3" onChange={formik.handleChange} name="TypeofOrganization" aria-label=".form-select-lg example">
-<option defaultValue="None">None</option>
-<option Value="Partnership">Partnership</option>
+<option defaultValue="None">--- Select ---</option>
+<option value="Partnership">Partnership</option>
 <option value="Individual">Individual</option>
 <option value="Company">Company</option>
 </select>
@@ -171,8 +181,8 @@ return (
 <label htmlFor="text" className="col-sm-2 col-form-label">Mode of Sharing:</label>
 <div className="col-sm-3">
 <select className="form-select form-select-lg mb-3" onChange={formik.handleChange} name="ModeofSharing" aria-label=".form-select-lg example">
-<option defaultValue="None">None</option>
-<option Value="Email">Email</option>
+<option defaultValue="None">--- Select ---</option>
+<option value="Email">Email</option>
 <option value="Physical">Physical</option>
 <option value="Pendrive">Pendrive</option>
 </select> 
@@ -184,6 +194,22 @@ return (
 <button onSubmit={formik.handleChange} type = "submit" >SUBMIT</button> 
 {/* <button onSubmit={formik.handleChange} type="submit" onClick={() => window.location.reload()}>SUBMIT</button> */}
 
+<div style={{ marginTop: '20px' }}>
+<button
+              type="button"
+              onClick={handleLogout}
+              style={{
+                backgroundColor: 'blue',
+                color: 'white',
+                padding: '10px 20px',
+                border: 'none',
+                borderRadius: '5px',
+                cursor: 'pointer',
+              }}
+            >
+                   Logout
+            </button>
+</div>
 
 </div>
 </div>
