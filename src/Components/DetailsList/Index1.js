@@ -1,11 +1,13 @@
 import { useFormik } from 'formik';
 import axios from 'axios';
 import './detailList.css';
+import { useNavigate  } from 'react-router-dom';
 
 
 
 function DetailsList(){
 
+  const navigate = useNavigate();
 
 
 const formik = useFormik({
@@ -41,7 +43,7 @@ onSubmit:  async(values) => {
 
  async function handleLogout() {
   try {
-    window.location.href = 'https://nationalfittingsupsi.netlify.app/';
+    navigate('/');
   } catch (error) {
     console.log(error);
   }
@@ -192,7 +194,7 @@ return (
 
 <div className="mb-3 row">
 <button onSubmit={formik.handleChange} type = "submit" >SUBMIT</button> 
-{/* <button onSubmit={formik.handleChange} type="submit" onClick={() => window.location.reload()}>SUBMIT</button> */}
+
 
 <div style={{ marginTop: '20px' }}>
 <button
