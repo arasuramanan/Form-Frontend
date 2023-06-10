@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import './detailList.css';
 import { useNavigate  } from 'react-router-dom';
+import { API } from '../global/imp';
 
 
 
@@ -32,7 +33,7 @@ const formik = useFormik({
 onSubmit:  async(values) => { 
  console.log("hi");
   console.log(values);
-      const result = await axios.post(`https://form-backend-9ekx.onrender.com/api/detailsnewform`, values);
+      const result = await axios.post(`${API}`, values);
       console.log(result);
        window.alert("🎉✨ Form Submitted Successfully! 🎉✨");
         window.location.reload();
