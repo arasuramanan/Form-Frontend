@@ -33,7 +33,7 @@ const formik = useFormik({
 onSubmit:  async(values) => { 
  console.log("hi");
   console.log(values);
-      const result = await axios.post(`${API}`, values);
+      const result = await axios.post(`${API}/detailsnewform`, values);
       console.log(result);
        window.alert("🎉✨ Form Submitted Successfully! 🎉✨");
         window.location.reload();
