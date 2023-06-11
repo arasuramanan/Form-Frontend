@@ -1,8 +1,6 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "private": "true",
-  "proxy": "https://formbackendback.onrender.com/",
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",

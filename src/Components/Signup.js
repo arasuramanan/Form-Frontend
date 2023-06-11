@@ -2,29 +2,31 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import './Signup.css';
+import { API } from './global/imp';
 
 
 
 function Login() {
-    const history=useNavigate();
-    const [email,setEmail]=useState('')
-    const [password,setPassword]=useState('')
+    const history = useNavigate();
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     async function submit(e){
         e.preventDefault();
 
         try{
 
-            await axios.post("/signup",{
+           await axios.post(`${API}/register/signup`, {
                 email, 
                 password,
             })
             .then(res=>{
+                console.log(res);
                 if(res.data === "exist"){
                     alert("User already exists")
                 }
-                else if(res.data === "notexist") {
-                    history("/");
+                else if(res.data === "notexist"){
+                    history("/home",{state:{id:email}})
                 }
             })
             .catch(e=>{

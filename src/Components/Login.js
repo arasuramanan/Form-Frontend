@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import './login.css';
+import { API } from './global/imp';
 
 
 function Login() {
@@ -16,12 +17,14 @@ function Login() {
 
         try{
 
-            await axios.post("/",{
+            await axios.post(`${API}/register/login`,{
                 email,password
             })
             .then(res=>{
-                if(res.data === "exist"){
+                console.log(res);
+                if(res.status === 200){
                     history("/list")
+                    
                 }
                 else if(res.data === "notexist"){
                     alert("User have not sign up")
